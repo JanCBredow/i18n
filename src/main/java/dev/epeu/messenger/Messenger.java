@@ -1,6 +1,7 @@
 package dev.epeu.messenger;
 
 import com.google.common.collect.Lists;
+import dev.epeu.logging.console.ConsoleLogger;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -82,6 +83,7 @@ public abstract class Messenger {
 
       return processString(fromBundle, options);
     } catch (Throwable failure) {
+      ConsoleLogger.of(Messenger.class).error(failure.getLocalizedMessage());
       return localeKey;
     }
   }
