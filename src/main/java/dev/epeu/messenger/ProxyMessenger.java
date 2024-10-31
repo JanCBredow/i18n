@@ -5,8 +5,7 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import dev.epeu.messenger.cache.LocaleCache;
 import dev.epeu.messenger.cache.ProxyLocaleCacheUpdateListener;
 import dev.epeu.messenger.cache.ProxyLocaleCacheListener;
-import dev.epeu.proxycore.ProxyCorePlugin;
-import dev.epeu.proxycore.Redis;
+import dev.epeu.proxycore.db.Redis;
 import dev.epeu.repo.repos.UserRepository;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import redis.clients.jedis.JedisPool;
@@ -26,7 +25,7 @@ public class ProxyMessenger extends Messenger {
     Preconditions.checkNotNull(plugin);
     Preconditions.checkNotNull(repository);
     ProxyMessenger messenger = new ProxyMessenger(serverType, server, plugin,
-      repository, LocaleCache.createEmptyCache(), ProxyCorePlugin.pool);
+      repository, LocaleCache.createEmptyCache());
     messenger.register();
     return messenger;
   }
@@ -34,7 +33,6 @@ public class ProxyMessenger extends Messenger {
   private final UserRepository repository;
   private final ProxyServer server;
   private final LocaleCache cache;
-  private final JedisPool pool;
   private final Object plugin;
 
   private ProxyMessenger(
@@ -42,14 +40,11 @@ public class ProxyMessenger extends Messenger {
     ProxyServer server,
     Object plugin,
     UserRepository repository,
-    LocaleCache cache,
-    JedisPool pool
-  ) {
+    LocaleCache cache) {
     super(serverType);
     this.server = server;
     this.plugin = plugin;
     this.cache = cache;
-    this.pool = pool;
     this.repository = repository;
   }
 
@@ -94,7 +89,7 @@ public class ProxyMessenger extends Messenger {
     var manager = server.getEventManager();
     manager.register(plugin, ProxyLocaleCacheListener.createWith(repository,
       cache));
-    ProxyLocaleCacheUpdateListener.createWithCacheAndPool(cache, pool).start();
+    ProxyLocaleCacheUpdateListener.createWithCacheAndPool(cache, Redis.pool).start();
   }
 
   @Override

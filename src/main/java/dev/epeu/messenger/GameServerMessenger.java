@@ -5,7 +5,7 @@ import dev.epeu.messenger.cache.GameLocaleCacheListener;
 import dev.epeu.messenger.cache.GameServerLocaleCacheUpdateListener;
 import dev.epeu.messenger.cache.LocaleCache;
 import dev.epeu.messenger.cache.ProxyLocaleCacheUpdateListener;
-import dev.epeu.proxycore.Redis;
+import dev.epeu.proxycore.db.Redis;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;

@@ -1,7 +1,7 @@
 package dev.epeu.messenger.cache;
 
 import com.google.common.base.Preconditions;
-import dev.epeu.proxycore.Redis;
+import dev.epeu.proxycore.db.Redis;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
