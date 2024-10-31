@@ -6,9 +6,8 @@ import dev.epeu.messenger.cache.LocaleCache;
 import dev.epeu.messenger.cache.ProxyLocaleCacheUpdateListener;
 import dev.epeu.messenger.cache.ProxyLocaleCacheListener;
 import dev.epeu.proxycore.db.Redis;
-import dev.epeu.repo.repos.UserRepository;
+import dev.epeu.proxycore.repo.UserRepository;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-import redis.clients.jedis.JedisPool;
 
 import java.util.Locale;
 import java.util.UUID;

@@ -7,7 +7,7 @@ import com.velocitypowered.api.event.connection.DisconnectEvent;
 import com.velocitypowered.api.event.connection.LoginEvent;
 import dev.epeu.objects.UserCriterion;
 import dev.epeu.proxycore.db.Redis;
-import dev.epeu.repo.repos.UserRepository;
+import dev.epeu.proxycore.repo.UserRepository;
 
 import java.util.Locale;
 import java.util.UUID;
