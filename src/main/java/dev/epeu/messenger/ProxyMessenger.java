@@ -49,13 +49,14 @@ public class ProxyMessenger extends Messenger {
 
   @Override
   public void sendMessage(UUID uuid, String localeKey, Object... substitutes) {
-    var v1 = LegacyComponentSerializer.legacy('§')
-            .deserialize(translate(uuid, localeKey, substitutes)).content();
-    var v2 = LegacyComponentSerializer.legacy('&')
-            .deserialize(v1);
     server
       .getPlayer(uuid)
-        .ifPresent(player -> player.sendMessage(v2));
+        .ifPresent(player -> player.sendMessage(LegacyComponentSerializer
+                .builder()
+                .character('&')
+                .character('§')
+                .build()
+                .deserialize(translate(uuid, localeKey, substitutes))));
   }
 
   @Override
