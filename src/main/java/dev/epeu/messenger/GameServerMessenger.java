@@ -5,7 +5,7 @@ import dev.epeu.messenger.cache.GameLocaleCacheListener;
 import dev.epeu.messenger.cache.GameServerLocaleCacheUpdateListener;
 import dev.epeu.messenger.cache.LocaleCache;
 import dev.epeu.messenger.cache.ProxyLocaleCacheUpdateListener;
-import dev.epeu.proxycore.db.Redis;
+import dev.epeu.servercore.db.Redis;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -27,6 +27,7 @@ public final class GameServerMessenger extends Messenger {
   ) {
     Preconditions.checkNotNull(serverType);
     Preconditions.checkNotNull(plugin);
+
     GameServerMessenger messenger = new GameServerMessenger(serverType, plugin,
       Redis.pool,
       LocaleCache.createEmptyCache());

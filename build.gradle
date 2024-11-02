@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'dev.epeu'
-version '0.2.0'
+version '0.2.1'
 
 repositories {
     mavenLocal()
@@ -42,11 +42,12 @@ dependencies {
     annotationProcessor 'com.velocitypowered:velocity-api:3.4.0-SNAPSHOT'
 
     compileOnly(group: 'dev.epeu', name: 'proxycorev2', version: '0.1.5')
+    compileOnly group: 'dev.epeu', name: 'servercore', version: '0.5.3'
 
     compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
     compileOnly group: 'org.spigotmc', name: 'spigot', version: '1.20.4-R0.1-SNAPSHOT'
 
-    compileOnly group: 'dev.epeu', name: 'servercore', version: '0.1.0'
+
 
     compileOnly group: 'dev.epeu', name: 'objects', version: '0.1.0'
 

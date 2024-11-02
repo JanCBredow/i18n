@@ -1,7 +1,7 @@
 package dev.epeu.messenger.cache;
 
 import com.google.common.base.Preconditions;
-import dev.epeu.servercore.Redis;
+import dev.epeu.servercore.db.Redis;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

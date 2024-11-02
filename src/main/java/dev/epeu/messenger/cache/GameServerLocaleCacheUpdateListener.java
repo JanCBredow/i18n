@@ -1,7 +1,7 @@
 package dev.epeu.messenger.cache;
 
 import com.google.common.base.Preconditions;
-import dev.epeu.servercore.Redis;
+import dev.epeu.servercore.db.Redis;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPubSub;
@@ -13,7 +13,7 @@ public final class GameServerLocaleCacheUpdateListener extends JedisPubSub {
   public static final String REDIS_CHANNEL = "messenger";
   private static final String THREAD_NAME = REDIS_CHANNEL + "update-listener";
   public static final String ACTION = "UPDATE_MESSAGE";
-
+  private final JedisPool pool;
   public static GameServerLocaleCacheUpdateListener createWithCacheAndPool(
     LocaleCache cache,
     JedisPool pool
@@ -24,7 +24,7 @@ public final class GameServerLocaleCacheUpdateListener extends JedisPubSub {
   }
 
   private final LocaleCache cache;
-  private final JedisPool pool;
+
 
   private GameServerLocaleCacheUpdateListener(
     LocaleCache cache,
