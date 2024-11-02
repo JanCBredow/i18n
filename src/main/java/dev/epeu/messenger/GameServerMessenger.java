@@ -28,8 +28,7 @@ public final class GameServerMessenger extends Messenger {
     Preconditions.checkNotNull(serverType);
     Preconditions.checkNotNull(plugin);
     GameServerMessenger messenger = new GameServerMessenger(serverType, plugin,
-      plugin.getServer().getServicesManager()
-        .getRegistration(JedisPool.class).getProvider(),
+      Redis.pool,
       LocaleCache.createEmptyCache());
     messenger.register();
     return messenger;
