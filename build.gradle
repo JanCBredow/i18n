@@ -41,16 +41,12 @@ dependencies {
     compileOnly 'com.velocitypowered:velocity-api:3.4.0-SNAPSHOT'
     annotationProcessor 'com.velocitypowered:velocity-api:3.4.0-SNAPSHOT'
 
-    compileOnly(group: 'dev.epeu', name: 'proxycorev2', version: '0.1.5')
+    compileOnly(group: 'dev.epeu', name: 'proxycore', version: '0.1.5')
     compileOnly group: 'dev.epeu', name: 'servercore', version: '0.5.3'
+    compileOnly group: 'dev.epeu', name: 'objects', version: '0.1.0'
 
     compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
     compileOnly group: 'org.spigotmc', name: 'spigot', version: '1.20.4-R0.1-SNAPSHOT'
-
-
-
-    compileOnly group: 'dev.epeu', name: 'objects', version: '0.1.0'
-
 }
 
 java {
@@ -70,7 +66,6 @@ publishing {
             from components.java
         }
     }
-
     repositories {
         maven {
             url = uri('https://repo.epeu.dev/artifactory/epeu-dev')

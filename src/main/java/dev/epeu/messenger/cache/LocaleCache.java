@@ -11,9 +11,9 @@ public final class LocaleCache {
     return new LocaleCache(Maps.newHashMap());
   }
 
-  private final Map<UUID , Locale> locales;
+  private final Map<UUID, Locale> locales;
 
-  private LocaleCache(Map<UUID , Locale> locales) {
+  private LocaleCache(Map<UUID, Locale> locales) {
     this.locales = locales;
   }
 

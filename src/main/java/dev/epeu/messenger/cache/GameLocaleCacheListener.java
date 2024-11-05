@@ -24,16 +24,16 @@ public final class GameLocaleCacheListener implements Listener {
   }
 
   @EventHandler(priority = EventPriority.HIGHEST)
-  public void addToCache(PlayerLoginEvent login) {
+  public void cachePlayer(PlayerLoginEvent login) {
     UUID uuid = login.getPlayer().getUniqueId();
 
-    Locale locale = resolveFromRedis(uuid);
+    Locale locale = findLanguageInRedisOrDefault(uuid);
     cache.addLocale(uuid, locale);
   }
 
   private static final Locale DEFAULT_LOCALE = Locale.GERMAN;
 
-  private Locale resolveFromRedis(UUID uuid) {
+  private Locale findLanguageInRedisOrDefault(UUID uuid) {
     String value = Redis.emptyBuilder().find(createKey(uuid));
     return value != null
       ? Locale.forLanguageTag(value)

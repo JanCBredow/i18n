@@ -12,15 +12,12 @@ import java.util.UUID;
 /**
  * epeu.dev I18n Framework
  * <p>
- * Last updated: Aug. 2020
+ * Last updated: Aug. 2024
  * <p>
  * <p>
  * Author:
  * <p>
  * Jan Christopher Bredow
- * <p>
- * Callback Servlet using Redis, "Jedis" as @see java.util.channel.Jedis
- * Update's Users Locale when requested via API.
  * <p>
  * runs async
  */
